@@ -8,8 +8,8 @@
 	    <!-- Bootstrap CSS -->
 	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-		<link rel="icon" type="image/png" href="{% static 'img/percent.svg' %}" />
-		<title>IMG Percent</title>
+		<link rel="icon" type="image/png" href="{% static 'img/icon.svg' %}" />
+		<title>Identify The Object</title>
 		<style type="text/css">
 			body {
 				color: white;
@@ -26,36 +26,32 @@
 		</style>
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-light fixed-top mb-5 shadow" style="background-color: #8766b5;">
-			<b><img src="{% static 'img/percent.svg' %}" width="25" height="25"><a class="navbar-brand" href="/">&nbsp;IMG Percent</a></b>
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top mb-5 shadow" style="background-color: #1E90FF;">
+			<b><a style="color: white" class="navbar-brand" href="/"><i class="fa fa-area-chart" aria-hidden="true"></i>&nbsp;Identify The Object</a></b>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="btn btn-info custom-btn active nav-link mr-2" href="/"  style="color: black; background-color:	 #DDA0DD;"><span class="fas fa-home"></span> Página Principal
+						<a class="btn btn-info custom-btn active nav-link mr-2" href="/"  style="color: white; background-color:	 #0000CD;"><span class="fas fa-home"></span> Página Principal
 						</a>
 					</li>
 					<li class="nav-item active">
-						<a class="btn btn-info custom-btn active nav-link mr-2" href="/recognition"  style="color: black; background-color:	 #DDA0DD;"><span class="fas fa-search"></span> Reconhecer imagem
+						<a class="btn btn-info custom-btn active nav-link mr-2" href="/recognition"  style="color: white; background-color:	 #0000CD;"><span class="fas fa-search"></span> Reconhecer imagem
 						</a>
 					</li>
 					<li class="nav-item active">
-						<a class="btn btn-info custom-btn active nav-link" href="/about" style="color: black; background-color:#DDA0DD;"><span class="fas fa-users"></span> Sobre</a>
+						<a class="btn btn-info custom-btn active nav-link" href="/about" style="color: white; background-color:#0000CD;"><span class="fas fa-users"></span> Sobre</a>
 					</li>
 				</ul>
-				<form class="form-inline my-2 my-lg-0">
-					<label style="color: black; font-size: 17px;"><b>TESTE PARA</b></label>  
-					&nbsp;&nbsp;<a href="https://www.pickcells.bio"><img src="https://www.pickcells.bio/wp-content/themes/pickcells/assets/images/logo.png" width="100px"></a>&nbsp;
-				</form>
 			</div>
 		</nav>
 		<br>
 		<br>
 		<div class="container">
 			<div class="card border-0 shadow my-5">
-    			<div class="card-body p-5">
+    			<div class="card-body p-5" style="background-color:#1E90FF; ">
 					{% block content %}
 			        {% endblock %}
 			    	<div style="height: 400px"></div>

@@ -1,7 +1,11 @@
 {% extends './base.html' %}
 {% block content %}
-
-<p>Teste</p>
-<h2>teste</h2>
+{% load static %}
+<h2><b>Introdução a respeito do assunto...</b></h2><br>
+<p>Olá, <b>BEM VINDO(A)</b> ao Identify The Object.</p><br>
+<p>Em síntese nosso programa faz o reconhecimento de obejetos em uma imagem por meio de inteligencia
+artificial, utilizando a rede do Yolov3 e também o OpenCV para gerenciar a marcação da imagem e etc...</p><br>
+<img src="{% static 'img/exemple.jpg' %}" class="img-responsive" height="600px" width="800px"><br><br>
+<p>Inicie sua aventura clicando em <b>"Analizar Imagem"</b></p>
 
 {% endblock %}

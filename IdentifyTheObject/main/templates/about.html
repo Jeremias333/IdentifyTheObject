@@ -1,0 +1,28 @@
+{% extends './base.html' %}
+{% block content %}
+{% load static %}
+<style type="text/css">
+	img.pointer{
+		cursor: pointer;
+	}
+</style>
+<center>
+	<div class="row" style="color: black;">
+	    <div class="col col-lg-2">
+	    	<img class="border border-primary" src="{% static 'img/eu.jpg' %}" width="180px" height="200px" style="border: 2px;">
+	    </div>
+	    <div class="col-sm-6 col-md-8">
+	    	<h1>Jeremias Oliveira da Silva</h1>
+	    	<br>
+	    	<p>Desenvolvi este site para teste na empresa Pickcells, foi feito com muito esforço e amor.</p>
+	    	<p>Programação é minha paixão e adorei aprender desenvolvendo este site.</p>
+	    	<br>
+	      	<p>Caso queira o link para a documentação da aplicação <a  target="_blank" href="https://github.com/Jeremias333/imgpercent-teste-pickcells">CLIQUE AQUI.</a></p>
+		</div>
+	    <div class="row">
+			<img class="pointer" width="90px" height="90px" src="{% static 'img/github.svg' %}" onclick="window.open('https://github.com/Jeremias333');"><br><br>
+    		<img class="pointer" width="90px" height="90px" src="{% static 'img/linkedin.svg' %}" onclick="window.open('https://www.linkedin.com/in/jeremias-oliveira/');">
+    	</div>
+  	</div>
+</center>
+{% endblock %}

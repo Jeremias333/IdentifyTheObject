@@ -12,8 +12,8 @@
 		<title>Identify The Object</title>
 		<style type="text/css">
 			body {
-				color: white;
-				background: url({% static 'img/background-final.jpg' %}) no-repeat center center fixed;
+				color: black;
+				background: url({% static 'img/background.jpg' %}) no-repeat center center fixed;
 				-webkit-background-size: cover;
 				-moz-background-size: cover;
 				background-size: cover;
@@ -26,23 +26,23 @@
 		</style>
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-light fixed-top mb-5 shadow" style="background-color: #1E90FF;">
-			<b><a style="color: white" class="navbar-brand" href="/"><i class="fa fa-area-chart" aria-hidden="true"></i>&nbsp;Identify The Object</a></b>
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top mb-5 shadow" style="background-color: #FF8C00">
+			<b><i class="fa fa-image" aria-hidden="true"></i><a style="color: black" class="navbar-brand" href="/">&nbsp;Identify The Object</a></b>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="btn btn-info custom-btn active nav-link mr-2" href="/"  style="color: white; background-color:	 #0000CD;"><span class="fas fa-home"></span> Página Principal
+						<a class="btn btn-info custom-btn active nav-link mr-2" href="/"  style="color: black; background-color:#1E90FF"><span class="fas fa-home"></span> Página Principal
 						</a>
 					</li>
 					<li class="nav-item active">
-						<a class="btn btn-info custom-btn active nav-link mr-2" href="/recognition"  style="color: white; background-color:	 #0000CD;"><span class="fas fa-search"></span> Reconhecer imagem
+						<a class="btn btn-info custom-btn active nav-link mr-2" href="/recognition"  style="color: black; background-color:#1E90FF"><span class="fas fa-search"></span> Reconhecer imagem
 						</a>
 					</li>
 					<li class="nav-item active">
-						<a class="btn btn-info custom-btn active nav-link" href="/about" style="color: white; background-color:#0000CD;"><span class="fas fa-users"></span> Sobre</a>
+						<a class="btn btn-info custom-btn active nav-link" href="/about" style="color: black; background-color:#1E90FF"><span class="fas fa-users"></span> Sobre</a>
 					</li>
 				</ul>
 			</div>
@@ -51,7 +51,7 @@
 		<br>
 		<div class="container">
 			<div class="card border-0 shadow my-5">
-    			<div class="card-body p-5" style="background-color:#1E90FF; ">
+    			<div class="card-body p-5" style="background-color:#1E90FF;" align="center">
 					{% block content %}
 			        {% endblock %}
 			    	<div style="height: 400px"></div>

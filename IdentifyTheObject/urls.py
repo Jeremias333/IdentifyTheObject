@@ -22,8 +22,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("", view.index)
+    path("", view.index, name="home"),
+    path('recognition/', view.submit, name="submit"),
+    path('about/', view.about, name="about"),
+    path('result/', view.result, name="result"),
 ]
 
 # Para submissão de imagens

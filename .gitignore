@@ -5,6 +5,7 @@ __pycache__/
 
 #Aditional
 yolov3.weights
+results.csv
 
 # C extensions
 *.so

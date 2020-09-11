@@ -15,6 +15,9 @@ contexto = {
 	"img_path_new": ""
 }
 
+#lista com todos objetos
+lista_all = list()
+
 #renderiza a página principal
 def index(req):
 	return render(req, "index.html")
@@ -22,10 +25,13 @@ def index(req):
 #renderiza a página de resultados
 def result(req):
 	#no contexto é passado o dicionário chamado contexto com seus determinados valores.
-	return render(req, "result.html", {"img_path_new": contexto["img_path_new"], "obj": contexto["obj"], "percent": contexto["percent"]})
+	return render(req, "result.html", {"img_path_new": contexto["img_path_new"], "lista":lista_all})
 
 #renderiza a página de reconhecimento
 def submit(req):
+	#limpando lista
+	lista_all.clear()
+
 	#objeto para gerenciar arquivos de imagem
 	fs = FileSystemStorage()
 	
@@ -160,20 +166,16 @@ def submit(req):
 						cv2.putText(image, text_box_current, (x_min, y_min - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, colours_box_current, 2)
 
 						escritor_csv.writerow( {"Objeto": text_box_current.split(":")[0], "Porcentagem": text_box_current.split(":")[1]})
-				
-				if(text_box_current.split(":")[0] == "Gato" or text_box_current.split(":")[0] == "Cachorro"):
-					contexto["obj"] = text_box_current.split(":")[0]
-					contexto["percent"] = text_box_current.split(":")[1]
+						
+						lista_all.append(text_box_current.split(":")[0])
+
 					contexto["img_path_new"] = "../../media/new"+filename
 
 					#unindo caminho para salvar imagem com retangulo e descrição.
 					img_path_new = os.path.join(fs.location, "new"+filename)
 					cv2.imwrite(f"{img_path_new}", image_new)#salvando nova imagem.
-				else:
-					contexto["img_path_new"] = "../../media/"+filename
-					contexto["obj"] = "0"
-	
-				return redirect("../result")
+				
+					return redirect("../result")
 	return render(req, 'submitimg.html')#acessa a página pedida
 
 

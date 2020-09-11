@@ -96,7 +96,7 @@ def submit(req):
 		threshold = 0.3
 
 		#Gera cores aleatórias nas caixas de cada objeto detectados.
-		#colours = np.random.randint(0, 255, size=(len(labels), 3), dtype="uint8")
+		colours = np.random.randint(0, 255, size=(len(labels), 3), dtype="uint8")
 
 		#loop de captura e detecção de objetos
 		with open(f"{module_dir}/results.csv", "w") as arquivo:#criando/lendo o arquivo que vai guardar os testes
@@ -151,7 +151,7 @@ def submit(req):
 					for i in results.flatten():
 						x_min, y_min = bounding_boxes[i][0], bounding_boxes[i][1]
 						box_width, box_height = bounding_boxes[i][2], bounding_boxes[i][3]
-						colours_box_current = (0,255,0)
+						colours_box_current = colours[class_numbers[i]].tolist()
 						image_new = cv2.rectangle(image, (x_min, y_min), (x_min + box_width, y_min + box_height), colours_box_current, 2)
 
 						#modificando porcentagem para 2 casas decimais.

@@ -42,8 +42,8 @@
 	<center>
 		<div style="color: black">
 			<div id="load" style="visibility: hidden;" align="center"><h4>Carregando...</h4></div>
-			<h4>Por favor selecione uma imagem que contenha um gato ou cachorro para ser identificada.</h4>
-			<img src="{% static 'img/caogato.jpg' %}" class="img-fluid" width="400px" height="300px">
+			<h5></strong>Por favor selecione uma imagem analizada. Em seguida clique em calcular.</strong></h5>
+			<img style="border: 3px solid black;" src="{% static 'img/snap.jpg' %}" class="img-fluid" width="600px" height="500px">
 			<form enctype="multipart/form-data" method="POST">
 				{% csrf_token %}
 				<br>
@@ -54,13 +54,11 @@
 				<input type="submit" id="btn" name="" class="btn btn-primary custom-btn" disabled="" style="background-color:  #FF8C00; color: black;" value="Calcular imagem" onclick="showLoad();">
 			</form>
 			<br>
-			<br>
 			<h3 style="color: red">ATENÇÃO!!</h3>
 			<div align="left">
-				<li>Não selecione imagens com mais de um gato/cachorro. Ainda não está implementado tratamento para diversos animais/objetos em uma única foto.</li>
-				<li>O objetivo final do algoritmo é identificar se o objeto da foto enviada é um gato ou cachorro mostrando sua porcentagem de chance de ser (Ou se não foi identificado um cachorro/gato).</li>
-				<li>Outros objetos serão identificados, pois ainda não temos tratamento para evitar isto.</li>
-				<li>Poderá ser selecionada imagens que não contenham cachorro para poder testar o poder do algoritmo.</li>
+				<li>O site ainda está em fase inicial, alguns objetos podem ser mal identificados</li>
+				<li>Utilize qualquer formato principal de imagem (jpg, png etc...)</li>
+				<li>Pode ser que a qualidade da imagem interfira nos resultados</li>
 			</div>
 		</div>
 	</center>

@@ -24,7 +24,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path("", view.index, name="home"),
     path('recognition/', view.submit, name="submit"),
-    path('about/', view.about, name="about"),
     path('result/', view.result, name="result"),
 ]
 

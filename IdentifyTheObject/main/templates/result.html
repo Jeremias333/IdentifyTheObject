@@ -2,23 +2,25 @@
 {% block content %}
 <center>
 	<div style="color: black;">
-		{% if obj == "0" %}
-			<h3>Esta imagem está abaixo de 50,00% de chance de ser um cachorro ou gato.</h3>
-		{% else %}
-			<h3>Identificamos que nesta imagem existe {{percent}} de chance de conter um {{obj}}</h1>
-		{% endif %}
+		<strong><p>Encontramos alguns objetos...</p></strong>
+		<a href="/recognition/" class="btn btn-primary custom-btn" style="background-color: #FF8C00; color: black">Calcular outra vez</a>
 		<br>
 		<a href="/recognition/" class="btn btn-primary custom-btn" style="background-color: #DDA0DD;">Calcular outra vez</a>
 		<br>
-		<br>
-		<figure class="figure">
-			<img src="{{ img_path_new }}" class="figure-img img-fluid rounded" alt="..." width="400" height="300">
-			{% if obj == "0" %}
-				<figcaption class="figure-caption" style="color: black">Talvez esta imagem não tenha um cachorro ou gato...</figcaption>
-			{% else %}
-				<figcaption class="figure-caption" style="color: black">Esta é sua imagem marcando gato ou cachorro identificado.</figcaption>
-			{% endif %}
-		</figure>
+		<a style="color: black" href="{{ img_path_new }}">
+			<figure class="figure">
+				<img src="{{ img_path_new }}" class="figure-img img-fluid rounded" alt="..." width="400" height="300">
+				<figcaption>Clique na imagem para ver ela completa!</figcaption>
+			</figure><br>
+		</a><br>
+		<p><strong>Aqui está a lista de objetos identificados na imagem:</strong></p>
+		<div align="left">
+			<ul>
+			{% for obj in lista %}
+				<li><p>{{ obj }}</p></li>
+			{% endfor %}
+			</ul>
+		</div>
 	</div>
 </center>
 {% endblock %}

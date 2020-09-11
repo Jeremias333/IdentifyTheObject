@@ -12,8 +12,6 @@ from csv import DictWriter
 
 #Criado dicionário para persistir dados da submissão da imagem.
 contexto = {
-	"obj": "",
-	"percent": "",
 	"img_path_new": ""
 }
 

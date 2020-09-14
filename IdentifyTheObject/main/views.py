@@ -9,10 +9,12 @@ import numpy as np#biblioteca para utilizar matrizes e arrays multidimensionais.
 import cv2
 #criará arquivo com objetos detectados.
 from csv import DictWriter
+from gtts import gTTS
 
 #Criado dicionário para persistir dados da submissão da imagem.
 contexto = {
-	"img_path_new": ""
+	"img_path_new": "",
+	"audio_path": ""
 }
 
 #lista com todos objetos
@@ -25,7 +27,7 @@ def index(req):
 #renderiza a página de resultados
 def result(req):
 	#no contexto é passado o dicionário chamado contexto com seus determinados valores.
-	return render(req, "result.html", {"img_path_new": contexto["img_path_new"], "lista":lista_all})
+	return render(req, "result.html", {"img_path_new": contexto["img_path_new"], "lista":lista_all, "audio_path":contexto["audio_path"]})
 
 #renderiza a página de reconhecimento
 def submit(req):
@@ -174,7 +176,24 @@ def submit(req):
 					#unindo caminho para salvar imagem com retangulo e descrição.
 					img_path_new = os.path.join(fs.location, "new"+filename)
 					cv2.imwrite(f"{img_path_new}", image_new)#salvando nova imagem.
-				
+
+					text_voice = "Esses foram alguns objetos identificados na imagem submetida: "
+
+					for linha in lista_all:
+						linha = linha.split(" - ")
+						text_voice += f" {linha[0]},"
+
+					text_voice += " Para parar a fala pressione a tecla espaço."
+
+					print("Carregando...")
+					TTS = gTTS(text=text_voice, lang='pt-br')
+					print(text_voice)
+
+					# Save to mp3 in current dir.
+					TTS.save(os.path.join(fs.location, "audio.mp3"))
+					audio_path = os.path.join(fs.location, "audio.mp3")
+					contexto["audio_path"] = "../../media/audio.mp3"
+
 					return redirect("../result")
 	return render(req, 'submitimg.html')#acessa a página pedida
 

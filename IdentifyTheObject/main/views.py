@@ -167,7 +167,7 @@ def submit(req):
 
 						escritor_csv.writerow( {"Objeto": text_box_current.split(":")[0], "Porcentagem": text_box_current.split(":")[1]})
 						
-						lista_all.append(text_box_current.split(":")[0])
+						lista_all.append(text_box_current.split(":")[0].capitalize() +" - "+ text_box_current.split(":")[1])
 
 					contexto["img_path_new"] = "../../media/new"+filename
 

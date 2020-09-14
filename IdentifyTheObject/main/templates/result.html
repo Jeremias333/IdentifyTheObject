@@ -13,6 +13,15 @@
 			</figure><br>
 		</a><br>
 		<p><strong>Aqui está a lista de objetos identificados na imagem:</strong></p>
+		<audio src="{{audio_path}}" width="2" height="0">
+		</audio>
+		<audio id="audio" controls autoplay="true" loop="true">
+		  <source src="{{audio_path}}" type="audio/mpeg">
+		  Your browser does not support the audio tag.
+		</audio>
+		<script type="text/javascript">
+			document.getElementById("audio").focus();
+		</script>
 		<div align="left">
 			<ul>
 			{% for obj in lista %}

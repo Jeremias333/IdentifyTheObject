@@ -9,6 +9,7 @@ results.csv
 media/*.jpg
 media/*.png
 media/*.jpeg
+media/audio.mp3
 
 # C extensions
 *.so

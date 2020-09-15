@@ -22,13 +22,17 @@
 		<script type="text/javascript">
 			document.getElementById("audio").focus();
 		</script>
-		<div align="left">
-			<ul>
-			{% for obj in lista %}
-				<li><p>{{ obj }}</p></li>
-			{% endfor %}
-			</ul>
-		</div>
+		{% if lista|length == 0 %}
+			<p>Não foi possível identificar objetos na imagem submetida.</p>
+		{% else %}
+			<div align="left">
+				<ul>
+				{% for obj in lista %}
+					<li><p>{{ obj }}</p></li>
+				{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
 	</div>
 </center>
 {% endblock %}

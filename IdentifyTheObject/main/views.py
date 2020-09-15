@@ -185,6 +185,9 @@ def submit(req):
 
 					text_voice += " Para parar a fala pressione a tecla espaço."
 
+					if(len(lista_all) == 0):
+						text_voice = "Não foram identificados objetos na imagem. Para parar a fala pressione a tecla espaço."
+
 					print("Carregando...")
 					TTS = gTTS(text=text_voice, lang='pt-br')
 					print(text_voice)

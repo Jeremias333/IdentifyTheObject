@@ -183,10 +183,8 @@ def submit(req):
 						linha = linha.split(" - ")
 						text_voice += f" {linha[0]},"
 
-					text_voice += " Para parar a fala pressione a tecla espaço."
-
-					if(len(lista_all) == 0):
-						text_voice = "Não foram identificados objetos na imagem. Para parar a fala pressione a tecla espaço."
+					text_voice += ", Todos objetos encontrados tem uma chance de estarem corretos entre 51 a 99%."
+					text_voice += ", Para parar a fala pressione a tecla espaço."
 
 					TTS = gTTS(text=text_voice, lang='pt-br')
 

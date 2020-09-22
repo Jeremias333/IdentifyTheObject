@@ -17,13 +17,13 @@
 		</audio>
 		<audio id="audio" controls autoplay="true" loop="true">
 		  <source src="{{audio_path}}" type="audio/mpeg">
-		  Your browser does not support the audio tag.
+		  Seu navegador não tem suporte para audio descrição.
 		</audio>
 		<script type="text/javascript">
 			document.getElementById("audio").focus();
 		</script>
 		{% if lista|length == 0 %}
-			<p>Não foi possível identificar objetos na imagem submetida.</p>
+			<p>Não foi possível identificar objetos nesta imagem.</p>
 		{% else %}
 			<div align="left">
 				<ul>

@@ -145,7 +145,7 @@ def submit(req):
 							bounding_boxes.append([x_min, y_min, int(box_width), int(box_height)])
 							confidences.append(float(confidence_current))
 							class_numbers.append(class_current)
-
+							
 				results = cv2.dnn.NMSBoxes(bounding_boxes, confidences, probability_minimum, threshold)
 
 				#verificando se existe pelo menos um objeto detectado
@@ -169,7 +169,7 @@ def submit(req):
 
 						escritor_csv.writerow( {"Objeto": text_box_current.split(":")[0], "Porcentagem": text_box_current.split(":")[1]})
 						
-						lista_all.append(text_box_current.split(":")[0].capitalize() +" - "+ text_box_current.split(":")[1] +" porcentagem de ser este objeto")
+						lista_all.append(text_box_current.split(":")[0].capitalize() +" - "+ text_box_current.split(":")[1] +" de chance de ser este objeto.")
 
 					contexto["img_path_new"] = "../../media/new"+filename
 
@@ -188,9 +188,19 @@ def submit(req):
 					if(len(lista_all) == 0):
 						text_voice = "Não foram identificados objetos na imagem. Para parar a fala pressione a tecla espaço."
 
-					print("Carregando...")
 					TTS = gTTS(text=text_voice, lang='pt-br')
-					print(text_voice)
+
+					# Save to mp3 in current dir.
+					TTS.save(os.path.join(fs.location, "audio.mp3"))
+					audio_path = os.path.join(fs.location, "audio.mp3")
+					contexto["audio_path"] = "../../media/audio.mp3"
+
+					return redirect("../result")
+				elif len(results) <= 0:
+					contexto["img_path_new"] = "../../media/"+filename
+					text_voice = "Não foram identificados objetos nesta imagem, para parar a fala pressione a tecla espaço."
+
+					TTS = gTTS(text=text_voice, lang='pt-br')
 
 					# Save to mp3 in current dir.
 					TTS.save(os.path.join(fs.location, "audio.mp3"))
